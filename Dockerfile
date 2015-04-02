@@ -1,3 +1,5 @@
-FROM busybox
+FROM node:0.10
+RUN npm install -g drakov
 
-CMD ["/bin/echo", "hello world"]
+EXPOSE 3000
+ENTRYPOINT ["drakov", "-f", "/*.md", "-p", "3000"]
